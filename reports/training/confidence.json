@@ -1,0 +1,628 @@
+{
+  "train_rows": 11688,
+  "val_rows": 2340,
+  "none": {
+    "log_loss": 0.0504,
+    "brier": 0.0115,
+    "ece": 0.0044
+  },
+  "sigmoid": {
+    "log_loss": 0.0501,
+    "brier": 0.0115,
+    "ece": 0.0051
+  },
+  "isotonic": {
+    "log_loss": 0.047,
+    "brier": 0.0106,
+    "ece": 0.0016
+  },
+  "chosen": "isotonic",
+  "thresholds": {
+    "classifier_threshold": 0.95,
+    "field_threshold": 0.96,
+    "coverage": 0.5795,
+    "accuracy": 0.9823
+  },
+  "threshold_curve": [
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.5,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.55,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.6,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.65,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.7,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.75,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.8,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.85,
+      "coverage": 0.8974,
+      "accuracy": 0.9371
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.9,
+      "coverage": 0.8615,
+      "accuracy": 0.9464
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.95,
+      "coverage": 0.641,
+      "accuracy": 0.96
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.955,
+      "coverage": 0.6051,
+      "accuracy": 0.9661
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.96,
+      "coverage": 0.5897,
+      "accuracy": 0.9739
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.965,
+      "coverage": 0.5641,
+      "accuracy": 0.9727
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.97,
+      "coverage": 0.5333,
+      "accuracy": 0.9712
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.975,
+      "coverage": 0.4718,
+      "accuracy": 0.9891
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.98,
+      "coverage": 0.3795,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.985,
+      "coverage": 0.0051,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.99,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 0.995,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.6,
+      "field_threshold": 1.0,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.5,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.55,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.6,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.65,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.7,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.75,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.8,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.85,
+      "coverage": 0.8974,
+      "accuracy": 0.9371
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.9,
+      "coverage": 0.8615,
+      "accuracy": 0.9464
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.95,
+      "coverage": 0.641,
+      "accuracy": 0.96
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.955,
+      "coverage": 0.6051,
+      "accuracy": 0.9661
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.96,
+      "coverage": 0.5897,
+      "accuracy": 0.9739
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.965,
+      "coverage": 0.5641,
+      "accuracy": 0.9727
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.97,
+      "coverage": 0.5333,
+      "accuracy": 0.9712
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.975,
+      "coverage": 0.4718,
+      "accuracy": 0.9891
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.98,
+      "coverage": 0.3795,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.985,
+      "coverage": 0.0051,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.99,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 0.995,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.7,
+      "field_threshold": 1.0,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.5,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.55,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.6,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.65,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.7,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.75,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.8,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.85,
+      "coverage": 0.8974,
+      "accuracy": 0.9371
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.9,
+      "coverage": 0.8615,
+      "accuracy": 0.9464
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.95,
+      "coverage": 0.641,
+      "accuracy": 0.96
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.955,
+      "coverage": 0.6051,
+      "accuracy": 0.9661
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.96,
+      "coverage": 0.5897,
+      "accuracy": 0.9739
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.965,
+      "coverage": 0.5641,
+      "accuracy": 0.9727
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.97,
+      "coverage": 0.5333,
+      "accuracy": 0.9712
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.975,
+      "coverage": 0.4718,
+      "accuracy": 0.9891
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.98,
+      "coverage": 0.3795,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.985,
+      "coverage": 0.0051,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.99,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 0.995,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.8,
+      "field_threshold": 1.0,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.5,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.55,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.6,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.65,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.7,
+      "coverage": 0.9179,
+      "accuracy": 0.9385
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.75,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.8,
+      "coverage": 0.9128,
+      "accuracy": 0.9382
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.85,
+      "coverage": 0.8974,
+      "accuracy": 0.9371
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.9,
+      "coverage": 0.8615,
+      "accuracy": 0.9464
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.95,
+      "coverage": 0.641,
+      "accuracy": 0.96
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.955,
+      "coverage": 0.6051,
+      "accuracy": 0.9661
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.96,
+      "coverage": 0.5897,
+      "accuracy": 0.9739
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.965,
+      "coverage": 0.5641,
+      "accuracy": 0.9727
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.97,
+      "coverage": 0.5333,
+      "accuracy": 0.9712
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.975,
+      "coverage": 0.4718,
+      "accuracy": 0.9891
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.98,
+      "coverage": 0.3795,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.985,
+      "coverage": 0.0051,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.99,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 0.995,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.9,
+      "field_threshold": 1.0,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.5,
+      "coverage": 0.9077,
+      "accuracy": 0.9435
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.55,
+      "coverage": 0.9077,
+      "accuracy": 0.9435
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.6,
+      "coverage": 0.9077,
+      "accuracy": 0.9435
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.65,
+      "coverage": 0.9077,
+      "accuracy": 0.9435
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.7,
+      "coverage": 0.9077,
+      "accuracy": 0.9435
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.75,
+      "coverage": 0.9026,
+      "accuracy": 0.9432
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.8,
+      "coverage": 0.9026,
+      "accuracy": 0.9432
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.85,
+      "coverage": 0.8872,
+      "accuracy": 0.9422
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.9,
+      "coverage": 0.8513,
+      "accuracy": 0.9518
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.95,
+      "coverage": 0.6308,
+      "accuracy": 0.9675
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.955,
+      "coverage": 0.5949,
+      "accuracy": 0.9741
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.96,
+      "coverage": 0.5795,
+      "accuracy": 0.9823
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.965,
+      "coverage": 0.5538,
+      "accuracy": 0.9815
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.97,
+      "coverage": 0.5231,
+      "accuracy": 0.9804
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.975,
+      "coverage": 0.4615,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.98,
+      "coverage": 0.3795,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.985,
+      "coverage": 0.0051,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.99,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 0.995,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    },
+    {
+      "classifier_threshold": 0.95,
+      "field_threshold": 1.0,
+      "coverage": 0.0,
+      "accuracy": 1.0
+    }
+  ]
+}

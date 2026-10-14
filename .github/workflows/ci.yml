@@ -1,0 +1,86 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: System packages (OpenCV runtime, Tesseract)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1 tesseract-ocr tesseract-ocr-ind
+      - name: Install
+        run: pip install -e ".[api,dev]"
+      - name: Lint and format
+        run: ruff check . && ruff format --check ml pipeline apps/api tests
+      - name: Types
+        run: mypy
+      - name: Unit, integration and ML regression tests with coverage
+        run: pytest -q --cov --cov-report=term-missing --cov-report=xml --cov-fail-under=70
+      - uses: actions/upload-artifact@v4
+        with: { name: coverage, path: coverage.xml }
+
+  web:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: apps/web } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: apps/web/package-lock.json }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Python dependency audit
+        run: pip install pip-audit && pip-audit .
+      - name: npm dependency audit
+        working-directory: apps/web
+        run: npm audit --omit=dev --audit-level=high
+
+  docker:
+    needs: [python, web]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build API image
+        uses: docker/build-push-action@v6
+        with: { context: ., file: infra/docker/api.Dockerfile, push: false, tags: "dokudata-api:ci" }
+      - name: Build web image
+        uses: docker/build-push-action@v6
+        with: { context: ., file: infra/docker/web.Dockerfile, push: false, tags: "dokudata-web:ci" }
+
+  deploy:
+    # Runs only on main when a deploy hook is configured (e.g. a Render/Railway/Fly deploy URL).
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [docker, security]
+    runs-on: ubuntu-latest
+    environment: demo
+    steps:
+      - name: Trigger demo deployment
+        env: { DEPLOY_HOOK_URL: "${{ secrets.DEPLOY_HOOK_URL }}" }
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then echo "DEPLOY_HOOK_URL not set; skipping"; exit 0; fi
+          curl -fsS -X POST "$DEPLOY_HOOK_URL"

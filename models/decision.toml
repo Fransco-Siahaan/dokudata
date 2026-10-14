@@ -1,0 +1,5 @@
+# Chosen on the validation split by ml.training.train_confidence; do not edit by hand.
+field_threshold = 0.96
+classifier_threshold = 0.95
+target_accuracy = 0.98
+validation_coverage = 0.5795

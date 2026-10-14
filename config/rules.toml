@@ -1,0 +1,28 @@
+# Validation rule configuration (PRD 9.3).
+#
+# Tax rules change. Verify current Indonesian VAT (PPN) regulations before relying on
+# these values: since 2025 the statutory rate is 12%, applied to non-luxury goods on a
+# DPP of 11/12 of the price, which is an effective 11%. Both are accepted here.
+
+[amounts]
+# Absolute tolerance in currency units for sums (rounding on printed receipts).
+tolerance_abs = 1.0
+# Relative tolerance for sums of many rows.
+tolerance_rel = 0.001
+
+[tax]
+vat_rates = [0.11, 0.12]
+rate_tolerance = 0.002
+
+[dates]
+# How many days in the future an issue date may be (clock skew between devices).
+max_future_days = 0
+# Oldest issue date accepted without a warning.
+min_year = 2000
+
+[decision]
+# Thresholds are overwritten by `ml.training.train_confidence`, which picks them on the
+# validation split so auto-approved documents meet the target accuracy.
+target_accuracy = 0.98
+field_threshold = 0.9
+classifier_threshold = 0.8

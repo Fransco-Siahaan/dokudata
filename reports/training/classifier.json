@@ -1,0 +1,145 @@
+{
+  "train_n": 1200,
+  "val_n": 240,
+  "keywords": {
+    "accuracy": 0.8875,
+    "macro_f1": 0.9017,
+    "per_class": {
+      "receipt": {
+        "precision": 0.9474,
+        "recall": 0.7579,
+        "f1": 0.8421,
+        "support": 95
+      },
+      "invoice": {
+        "precision": 0.8205,
+        "recall": 0.96,
+        "f1": 0.8848,
+        "support": 100
+      },
+      "other": {
+        "precision": 0.9574,
+        "recall": 1.0,
+        "f1": 0.9783,
+        "support": 45
+      }
+    },
+    "labels": [
+      "receipt",
+      "invoice",
+      "other"
+    ],
+    "confusion_matrix": [
+      [
+        72,
+        21,
+        2
+      ],
+      [
+        4,
+        96,
+        0
+      ],
+      [
+        0,
+        0,
+        45
+      ]
+    ]
+  },
+  "tfidf": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "receipt": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 95
+      },
+      "invoice": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 100
+      },
+      "other": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 45
+      }
+    },
+    "labels": [
+      "receipt",
+      "invoice",
+      "other"
+    ],
+    "confusion_matrix": [
+      [
+        95,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        45
+      ]
+    ],
+    "train_seconds": 27.5
+  },
+  "embedding": {
+    "accuracy": 0.9833,
+    "macro_f1": 0.9863,
+    "per_class": {
+      "receipt": {
+        "precision": 0.9691,
+        "recall": 0.9895,
+        "f1": 0.9792,
+        "support": 95
+      },
+      "invoice": {
+        "precision": 0.9898,
+        "recall": 0.97,
+        "f1": 0.9798,
+        "support": 100
+      },
+      "other": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 45
+      }
+    },
+    "labels": [
+      "receipt",
+      "invoice",
+      "other"
+    ],
+    "confusion_matrix": [
+      [
+        94,
+        1,
+        0
+      ],
+      [
+        3,
+        97,
+        0
+      ],
+      [
+        0,
+        0,
+        45
+      ]
+    ],
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "train_seconds": 425.7
+  }
+}

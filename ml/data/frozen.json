@@ -1,0 +1,19 @@
+{
+  "dataset": "data\\synthetic\\v1",
+  "seed": 20261011,
+  "note": "Test splits frozen before any model selection; evaluation verifies these digests.",
+  "splits": {
+    "test_seen": {
+      "n": 200,
+      "digest": "9f454ed3de68619bf0c585a20afbd0e974099367f011406fdd621f27b35a4361"
+    },
+    "test_unseen": {
+      "n": 100,
+      "digest": "ee87496c3e76790ba062a9d019a96d93d2083bb4832992c09de17f3391bda3ea"
+    },
+    "injection": {
+      "n": 30,
+      "digest": "4ee1888d8b1a57a68644049298614ed175f27983e651dadda386bcd5fa60fa4b"
+    }
+  }
+}

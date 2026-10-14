@@ -1,0 +1,69 @@
+# Full system: docker compose up --build   ->   http://localhost:8080
+x-api-env: &api-env
+  DOKUDATA_ENV: production
+  DOKUDATA_DATABASE_URL: postgresql+psycopg://dokudata:dokudata@postgres:5432/dokudata
+  DOKUDATA_STORAGE: s3
+  DOKUDATA_S3_ENDPOINT: http://minio:9000
+  DOKUDATA_S3_BUCKET: dokudata
+  DOKUDATA_S3_ACCESS_KEY: ${MINIO_ROOT_USER:-dokudata}
+  DOKUDATA_S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-dokudata-secret}
+  DOKUDATA_QUEUE_MODE: rq
+  DOKUDATA_REDIS_URL: redis://redis:6379/0
+  DOKUDATA_SECRET_KEY: ${DOKUDATA_SECRET_KEY:-change-me-in-production}
+  DOKUDATA_CORS_ORIGINS: '["http://localhost:8080"]'
+  ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: dokudata
+      POSTGRES_PASSWORD: dokudata
+      POSTGRES_DB: dokudata
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dokudata"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-dokudata}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-dokudata-secret}
+    volumes: [miniodata:/data]
+    ports: ["9001:9001"]
+
+  api:
+    build: { context: ., dockerfile: infra/docker/api.Dockerfile }
+    environment: *api-env
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      minio: { condition: service_started }
+
+  worker:
+    build: { context: ., dockerfile: infra/docker/api.Dockerfile }
+    command: ["rq", "worker", "documents", "--url", "redis://redis:6379/0"]
+    environment: *api-env
+    depends_on:
+      api: { condition: service_healthy }
+    deploy:
+      replicas: 2
+
+  web:
+    build: { context: ., dockerfile: infra/docker/web.Dockerfile }
+    ports: ["8080:80"]
+    depends_on: [api]
+
+volumes:
+  pgdata:
+  miniodata:

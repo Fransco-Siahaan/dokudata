@@ -1,0 +1,25 @@
+# Data and model pipeline for DVC (`dvc repro`). The same stages run without DVC through `make`.
+stages:
+  generate:
+    cmd: python -m ml.synthetic.generate --out data/synthetic/v1
+    deps: [ml/synthetic]
+    outs: [data/synthetic/v1]
+  ocr:
+    cmd: bash scripts/ocr_all.sh
+    deps: [data/synthetic/v1, pipeline/ocr, pipeline/preprocess]
+    outs: [data/cache/ocr]
+  train:
+    cmd: python -m ml.training.train_classifier && python -m ml.training.train_confidence
+    deps: [data/cache/ocr, ml/training, pipeline/classify, pipeline/confidence, pipeline/extract]
+    outs:
+      - models/classifier_tfidf.joblib
+      - models/classifier_embedding.joblib
+      - models/confidence.joblib
+      - models/decision.toml
+  evaluate:
+    cmd: python -m ml.evaluation.run_eval
+    deps: [data/cache/ocr, models, ml/evaluation, ml/data/frozen.json]
+    outs: [reports/latest]
+    metrics:
+      - reports/latest/summary.json:
+          cache: false
